@@ -1,0 +1,19 @@
+{
+  "inputs": [
+    {
+      "name": "privateData",
+      "public": false,
+      "type": "field"
+    },
+    {
+      "name": "data",
+      "public": true,
+      "type": "field"
+    }
+  ],
+  "outputs": [
+    {
+      "type": "field"
+    }
+  ]
+}
