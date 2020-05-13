@@ -5,7 +5,7 @@ const fs = require('fs');
 const HDWalletProvider = require('truffle-hdwallet-provider');
 
 // Read Infura key
-const infuraKey = fs.readFileSync("../.infura-key").toString().trim();
+const infuraKey = fs.readFileSync("../.infuraKey").toString().trim();
 
 // Read MetaMask seed phrase (mnemonic)
 const mnemonic = fs.readFileSync("../.secret").toString().trim();
@@ -29,10 +29,10 @@ const tokenId = argv[1];
   const accounts = await web3.eth.getAccounts();
   const contract = await new web3.eth.Contract(contractFile.abi, config.deployedAddress.SolnSquareVerifier, { gasLimit: "4500000" });
 
-  console.log(`Submitting solution:\n- Input: ${proof.inputs}\n- Token ID: ${tokenId}\n- Address: ${accounts[0]}`);
+  console.log(`Submitting solution:\n- Input: ${proof.inputs}\n- TokenID: ${tokenId}\n- Address: ${accounts[0]}`);
 
   try {
-    let result = await contract.methods.addSolution(...Object.values(proof.proof), proof.inputs, accounts[0], tokenId).send({ from: accounts[0], gas: 2500000});
+    let result = await contract.methods.addSolution(...Object.values(proof.proof), proof.inputs, accounts[0],tokenId).send({ from: accounts[0], gas: 2500000});
     console.log(result)
   } catch(err) {
     throw (err);

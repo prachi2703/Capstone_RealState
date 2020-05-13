@@ -2,17 +2,15 @@
 var SolnSquareVerifier = artifacts.require("SolnSquareVerifier");
 var Verifier = artifacts.require("Verifier");
 var BN256G2 = artifacts.require("BN256G2") 
+var RealStateToken = artifacts.require("RealStateToken")
 
 var fs = require("fs")
 module.exports = function (deployer) {
-  let propertyName = "Udacity Group";
-  let propertySymbol = "*";
-  let propertyBaseURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
-//   deployer.deploy(RealStateToken, propertyName, propertySymbol, propertyBaseURI);
+  deployer.deploy(RealStateToken);
   deployer.deploy(BN256G2,Verifier)
   deployer.link(BN256G2,Verifier)
   deployer.deploy(Verifier).then(() => {
-      return deployer.deploy(SolnSquareVerifier, Verifier.address, propertyName, propertySymbol, propertyBaseURI).then(() => {
+      return deployer.deploy(SolnSquareVerifier, Verifier.address).then(() => {
           let config = {
               deployedAddress: {
                   Verifier: Verifier.address,

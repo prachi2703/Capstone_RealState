@@ -21,16 +21,15 @@ contract('SolnSquareVerifier', accounts => {
 
         // Test if a new solution can be added for contract - SolnSquareVerifier
         it('Test if a new solution can be added for contract', async function () {
-            let txObj = await this.SolnSquareVerifierContract.addSolution(A, B, C, proofInput, account_one);
-            let event = txObj.logs[0].event;
-            assert.equal("solutionAdded", event, "Unable to add new solution");
+            let txObj = await this.SolnSquareVerifierContract.addSolution(A, B, C, proofInput, account_one,1);
+            assert.equal("solutionAdded", txObj.logs[0].event, "Unable to add new solution");
         });
 
         it('Test if only unique solutions can be added for contract', async function () {
-            await this.SolnSquareVerifierContract.addSolution(A, B, C, proofInput, account_one);
+            await this.SolnSquareVerifierContract.addSolution(A, B, C, proofInput, account_one,2);
             let isSolutionUnique = true;
             try {
-                await this.SolnSquareVerifierContract.addSolution(A, B, C, proofInput, account_one);
+                await this.SolnSquareVerifierContract.addSolution(A, B, C, proofInput, account_one,2);
             } catch (error) {
                 isSolutionUnique = false;
             }
@@ -39,9 +38,9 @@ contract('SolnSquareVerifier', accounts => {
 
         // Test if an ERC721 token can be minted for contract - SolnSquareVerifier
         it('Test if an ERC721 token can be minted for contract', async function () {
-            await this.SolnSquareVerifierContract.addSolution(A, B, C, proofInput, account_one);
-            let txObj= await this.SolnSquareVerifierContract.mintNFT(A, B, C, proofInput, account_one, 1,{from:account_one}); 
-            assert.equal("MintToken", txObj.logs[0].event, "Unable to mint a new token");
+            await this.SolnSquareVerifierContract.addSolution(A, B, C, proofInput, account_one,3);
+            let txObj= await this.SolnSquareVerifierContract.mintNFT(account_one, 3,{from:account_one}); 
+            assert.equal("Transfer", txObj.logs[0].event, "Unable to mint a new token");
         });
 
     });

@@ -1,6 +1,6 @@
 {
-	"deployedAddress:": {
-		"Verifier": "0x716fc9249349b69850d502e143A22Ada5ff91699",
-		"SolnSquareVerifier": "0x09277c73080e5B9cA3eDFb54059a5E03e37632C9"
+	"deployedAddress": {
+		"Verifier": "0x19D2a70a5432327339b5A02F5163e2876006959F",
+		"SolnSquareVerifier": "0x23da8c49bC8fDF53dEEC256162F00198D5AcC399"
 	}
 }

@@ -31,7 +31,7 @@ const tokenId = argv[0];
   console.log(`Minting new token:\n- Token ID: ${tokenId}\n- Address ${accounts[0]}`);
 
   try {
-    let result = await contract.methods.mint(accounts[0], tokenId).send({ from: accounts[0], gas: 2500000});
+    let result = await contract.methods.mintNFT(accounts[0], tokenId).send({ from: accounts[0], gas: 2500000});
     console.log(result)
   } catch(err) {
     throw err
