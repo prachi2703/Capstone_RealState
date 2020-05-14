@@ -119,6 +119,8 @@ truffle migrate --network rinkeby --reset --compile-all
 ```
 * Contract address is witten to `config.json`
 
+Note: Included library BN256G2 as Verifier.sol was throwing unresolved error, which got resolved by deploying the library first and linking it.
+
 ### Mint Tokens
 * Inside ```eth-contracts folder```, Run
 ```
@@ -137,6 +139,8 @@ node mintToken.js <tokenId>
     * Verifier at 0x19D2a70a5432327339b5A02F5163e2876006959F
     * SolnSquareVerifier at 0x23da8c49bC8fDF53dEEC256162F00198D5AcC399
 * OpenSea Market Place - https://rinkeby.opensea.io/assets/unidentified-contract-v363
+
+![OpenSea Rinkeby marketplace](images/storefront.png)
 
 # Project Resources
 
