@@ -16,7 +16,7 @@ contract('SolnSquareVerifier', accounts => {
     describe('match SolnSquareVerifier spec', function () {
         beforeEach(async function () {
             this.VerifierContract = await Verifier.new({from: account_one});
-            this.SolnSquareVerifierContract = await SolnSquareVerifier.new(this.VerifierContract.address, propertyName, propertySymbol, propertyBaseURI, {from: account_one});
+            this.SolnSquareVerifierContract = await SolnSquareVerifier.new(this.VerifierContract.address,{from: account_one});
         });
 
         // Test if a new solution can be added for contract - SolnSquareVerifier
